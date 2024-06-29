@@ -339,7 +339,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
       with:
-          tag_name: KernelSU-${{ env.KERNELSU_TAG }} Date-${{ env.BUILD_TIME }}
+          tag_name: ${{ env.KERNELSU_TAG }}
           body: |
             Device:
             ${{ env.DEVICE }}
