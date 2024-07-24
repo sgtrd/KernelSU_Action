@@ -181,7 +181,7 @@ jobs:
         fi
 
         # Save the latest commit ID
-        LATEST_COMMIT_ID=$(git log ${{ env.KERNEL_SOURCE_BRANCH }} --branches -1 --pretty=format:"%h")
+        LATEST_COMMIT_ID=$(git log --branches -1 --pretty=format:"%h")
         echo "LATEST_COMMIT_ID=$LATEST_COMMIT_ID" >> $GITHUB_ENV
 
     - name: Download source boot image
