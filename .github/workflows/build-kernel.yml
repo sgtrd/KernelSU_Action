@@ -180,6 +180,9 @@ jobs:
           echo "LOCALVERSION=" >> $GITHUB_ENV
         fi
 
+        # Navigate to the cloned kernel source repository
+        cd android-kernel
+        
         # Save the latest commit ID
         LATEST_COMMIT_ID=$(git log --branches -1 --pretty=format:"%h")
         echo "LATEST_COMMIT_ID=$LATEST_COMMIT_ID" >> $GITHUB_ENV
