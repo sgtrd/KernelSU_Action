@@ -180,6 +180,9 @@ jobs:
           echo "LOCALVERSION=" >> $GITHUB_ENV
         fi
 
+        # Save the latest commit ID
+        echo "LATEST_COMMIT_ID=$(git log origin/${{ env.KERNEL_SOURCE_BRANCH }} --branches -1 --pretty=format:"%h")" >> $GITHUB_ENV 
+
     - name: Download source boot image
       if: env.BUILD_BOOT_IMG == 'true'
       run: |
@@ -339,7 +342,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
       with:
-          tag_name: ${{ env.KERNELSU_TAG }}
+          tag_name: ${{ env.LATEST_COMMIT_ID}}
           body: |
             Device:
             ${{ env.DEVICE }}
