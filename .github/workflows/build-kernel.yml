@@ -346,6 +346,7 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v2.0.5
       with:
+          name: KernelSU ${{ env.KERNELSU_TAG }}
           tag_name: ${{ env.LATEST_COMMIT_ID}}
           body: |
             Device:
