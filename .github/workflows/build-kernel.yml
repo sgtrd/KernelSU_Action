@@ -207,6 +207,7 @@ jobs:
         echo "UPLOADNAME=-KernelSU_$KSU_VERSION" >> $GITHUB_ENV
         
         # Revert Drop Non-GKI Support
+        cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel/KernelSU
         git revert 898e9d4f8ca9b2f46b0c6b36b80a872b5b88d899
 
     - name: Setup Configuration for Kernel
