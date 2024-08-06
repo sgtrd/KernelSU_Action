@@ -205,10 +205,13 @@ jobs:
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s ${{ env.KERNELSU_TAG }}
         KSU_VERSION=$(cd KernelSU && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
         echo "UPLOADNAME=-KernelSU_$KSU_VERSION" >> $GITHUB_ENV
+
+        git config user.email "example@example.com"
+        git config user.name "example"
         
         # Revert Drop Non-GKI Support
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel/KernelSU
-        git revert --no-commit 898e9d4f8ca9b2f46b0c6b36b80a872b5b88d899
+        git revert 898e9d4f8ca9b2f46b0c6b36b80a872b5b88d899
 
     - name: Setup Configuration for Kernel
       run: |
