@@ -293,6 +293,11 @@ jobs:
         fi
         rm -rf AnyKernel3/.git* AnyKernel3/README.md
 
+    - name: Set UPLOADNAME
+    # Rename UPLOADNAME without the '-' to zip the folder properly
+      run: echo "UPLOADNAME=KernelSU_$KSU_VERSION" >> $GITHUB_ENV
+
+    
     - name: Make Custom-Anykernel3
       if: env.CHECK_FILE_IS_OK == 'true' && env.USE_CUSTOM_ANYKERNEL3 == 'true'
       run: |
@@ -318,9 +323,6 @@ jobs:
             cp android-kernel/out/arch/${{ env.ARCH }}/boot/dtbo.img AnyKernel3/
         fi
         rm -rf AnyKernel3/.git* AnyKernel3/README.md
-
-        # Rename UPLOADNAME without the '-' to zip the folder properly
-        echo "UPLOADNAME=KernelSU_$KSU_VERSION" >> $GITHUB_ENV
         
         cd AnyKernel3/
         zip -r ${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }} *
