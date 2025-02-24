@@ -320,7 +320,7 @@ jobs:
         rm -rf AnyKernel3/.git* AnyKernel3/README.md
         
         cd AnyKernel3/
-        zip -r ${{ env.LOCALVERSION }}${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }} *
+        zip -r "${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }}" *
 
     - name: Make boot image
       if: env.HAVE_SOURCE_BOOT_IMAGE == 'true' && env.CHECK_FILE_IS_OK == 'true'
