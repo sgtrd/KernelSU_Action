@@ -295,6 +295,7 @@ jobs:
 
     - name: Set UPLOADNAME
       run: | 
+        cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         KSU_VERSION=$(cd KernelSU && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
     
         # Rename UPLOADNAME without the '-' to zip the folder properly
