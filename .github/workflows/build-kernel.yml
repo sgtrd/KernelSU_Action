@@ -323,7 +323,7 @@ jobs:
         echo "UPLOADNAME=KernelSU_$KSU_VERSION" >> $GITHUB_ENV
         
         cd AnyKernel3/
-        zip -r ${{ UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }} *
+        zip -r ${{ env.UPLOADNAME }}-${{ env.DEVICE }}-${{ env.BUILD_TIME }} *
 
     - name: Make boot image
       if: env.HAVE_SOURCE_BOOT_IMAGE == 'true' && env.CHECK_FILE_IS_OK == 'true'
